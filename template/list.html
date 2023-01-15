@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TodoList</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="./list.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+    <a href="{% url 'create' %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
+    
+    {% for i in object_list %}
+    <div class="alert alert-{{ i.priority }}" role="alert">
+        <p>{{ i.title }}　期日：{{ i.duedate }}</p>
+        <a href="{% url 'update' i.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
+        <a href="{% url 'delete' i.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">削除</a>
+        <a href="{% url 'detail' i.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

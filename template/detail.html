@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TodoList - update</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="./list.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <p>タイトル：{{ object.title }}</p>
+        <p>中身：{{ object.memo }}</p>
+        <p>優先度：{{ object.priority }}</p>
+        <p>期日：{{ object.duedate }}</p>
+    </div>
+</div>
+
+{% endblock content %}
